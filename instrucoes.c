@@ -1,3 +1,6 @@
+//Incluindo o arquivo de cabeçalho
+#include "instrucoes.h"
+#include <stdio.h>
 //Configurando as instruções a serem utilizadas
 
 void hlt(){}
@@ -42,3 +45,7 @@ void divia(){}
 
 void lsh(){}
 void rsh(){}
+
+void hello(){
+    printf("Hello World");
+}
