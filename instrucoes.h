@@ -43,6 +43,3 @@ void divia();
 void lsh();
 void rsh();
 
-//Funções de Teste
-
-void hello();
