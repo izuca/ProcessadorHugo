@@ -28,7 +28,7 @@ void jmp(int endereco, unsigned short int pc);
 
 void lda(unsigned short int mar, unsigned short int a, unsigned char memoria[]);
 void ldb(unsigned short int mar, unsigned short int b, unsigned char memoria[]);
-void ldrb(unsigned short int mar, unsigned short int a, unsigned short int b, unsigned char memoria[]);
+void ldrb(unsigned short int mar, unsigned short int a, unsigned short int b);
 
 void sta(unsigned short int mar, unsigned char memoria[], unsigned short int a);
 void stb(unsigned short int mar, unsigned char memoria[], unsigned short int b);

@@ -11,24 +11,24 @@ void nop(unsigned short int pc, unsigned char lr){
     if(lr == 1){
         pc++;
     }
-    printf("O valor de pc após o nop: %d\n",pc);
+    printf("O valor de pc apos o nop: %d\n",pc);
 }
 
 void add(unsigned short int a, unsigned short int b){
     a += b;
-    printf("O valor de A após o add: %d\n",a);
+    printf("O valor de A apos o add: %d\n",a);
 }
 void sub(unsigned short int a, unsigned short int b){
     a -= b;
-    printf("O valor de A após o sub: %d\n",a);
+    printf("O valor de A apos o sub: %d\n",a);
 }
 void mul(unsigned short int a, unsigned short int b){
     a *= b;
-    printf("O valor de A após o mul: %d\n",a);
+    printf("O valor de A apos o mul: %d\n",a);
 }
 void div(unsigned short int a, unsigned short int b){
     a /= b;
-    printf("O valor de A após o div: %d\n",a);
+    printf("O valor de A apos o div: %d\n",a);
 }
 
 void cmp(unsigned short int a, unsigned short int b, unsigned char e, unsigned char l, unsigned char g ){
@@ -45,7 +45,7 @@ void cmp(unsigned short int a, unsigned short int b, unsigned char e, unsigned c
         e = '0';
         l = '0';
     }
-    printf("o valor dos registradores internos são: E = %c\t L = %c\t G = %c\n",e,l,g);
+    printf("o valor dos registradores internos sao: E = %c\t L = %c\t G = %c\n",e,l,g);
 }
 void xchg(unsigned short int a, unsigned short int b, unsigned short int t){
     t = a;
@@ -56,82 +56,82 @@ void xchg(unsigned short int a, unsigned short int b, unsigned short int t){
 
 void land(unsigned short int a, unsigned short int b){
     a = a & b;
-    printf("O valor de A após o and: A = %d\n",a);
+    printf("O valor de A apos o and: A = %d\n",a);
 }
 void lor(unsigned short int a, unsigned short int b){
     a = a | b;
-    printf("O valor de A após o or: A = %d\n",a);
+    printf("O valor de A apos o or: A = %d\n",a);
 }
 void lxor(unsigned short int a, unsigned short int b){
     a = a ^ b;
-    printf("O valor de A após o xor: A = %d\n",a);
+    printf("O valor de A apos o xor: A = %d\n",a);
 }
 void lnor(unsigned short int a){
     a = !a;
-    printf("O valor de A após o not: A = %d\n",a);
+    printf("O valor de A apos o not: A = %d\n",a);
 }
 
 void je(int endereco, unsigned short int pc, unsigned char e){
     if(e == '1'){
         pc = endereco;
     }
-    printf("pc após o je: %d\n",pc);
+    printf("pc apos o je: %d\n",pc);
 }
 void jne(int endereco, unsigned short int pc, unsigned char e){
     if(e == '0'){
         pc = endereco;
     }
-    printf("pc após o jne: %d\n",pc);
+    printf("pc apos o jne: %d\n",pc);
 }
 void jl(int endereco, unsigned char l, unsigned short int pc){
     if(l == '1'){
         pc = endereco;
     }
-    printf("pc após o jl: %d\n",pc);
+    printf("pc apos o jl: %d\n",pc);
 }
 void jle(int endereco, unsigned char l, unsigned char e, unsigned short int pc){
     if(l == '1' || e == '1'){
         pc = endereco;
     }
-    printf("pc após o jle: %d\n",pc);
+    printf("pc apos o jle: %d\n",pc);
 }
 void jg(int endereco, unsigned char g, unsigned short int pc){
-    if(g == 1){
+    if(g == '1'){
         pc = endereco;
     }
-    printf("pc após o jg: %d\n",pc);
+    printf("pc apos o jg: %d\n",pc);
 }
 void jge(int endereco, unsigned char g, unsigned char e, unsigned short int pc){
-    if(g == 1 || e == 1){
+    if(g == '1' || e == '1'){
         pc = endereco;
     }
-    printf("pc após o jge: %d\n",pc);
+    printf("pc apos o jge: %d\n",pc);
 }
 void jmp(int endereco, unsigned short int pc){
     pc = endereco;
-    printf("pc após o jmp: %d\n",pc);
+    printf("pc apos o jmp: %d\n",pc);
 }
 
 void lda(unsigned short int mar, unsigned short int a, unsigned char memoria[]){
     a = memoria[mar];
-    printf("O valor de a é: %x\n",a);
+    printf("O valor de a e: %x\n",a);
 }
 void ldb(unsigned short int mar, unsigned short int b, unsigned char memoria[]){
     b = memoria[mar];
-    printf("O valor de b é: %x\n",b);
+    printf("O valor de b e: %x\n",b);
 }
 void ldrb(unsigned short int mar, unsigned short int a, unsigned short int b){
     a = b;
-    printf("O valor de a é: %x\n",a);
+    printf("O valor de a e: %x\n",a);
 }
 
 void sta(unsigned short int mar, unsigned char memoria[], unsigned short int a){
     memoria[mar] = a;
-    printf("a memória recebeu o valor: %x\n",memoria[mar]);
+    printf("a memoria recebeu o valor: %x\n",memoria[mar]);
 }
 void stb(unsigned short int mar, unsigned char memoria[], unsigned short int b){
     memoria[mar] = b;
-    printf("a memória recebeu o valor: %x\n",memoria[mar]);
+    printf("a memoria recebeu o valor: %x\n",memoria[mar]);
 }
 
 void movial(unsigned short int a, unsigned short int imm){
@@ -141,8 +141,10 @@ void movial(unsigned short int a, unsigned short int imm){
     printf("A = %x\n",a);
 }
 void moviah(unsigned short int a, unsigned short int imm){
-    a = a & 0x00FF;
-    a += imm;
+    unsigned short int temp = a;
+    a = imm;
+    a = a << 4;
+    a += temp;
     printf("A = %x\n",a);
 }
 

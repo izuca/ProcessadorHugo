@@ -61,9 +61,6 @@ int main (){
     printf("O valor do mbr após o busca é: %x\n",mbr);
     decodifica();
     
-    // testando instruções...
-    a = 0x20;
-    b = 0x3;
-    hlt();
+
 }
 
