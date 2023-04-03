@@ -27,13 +27,25 @@ void lerArquivo(){
         strcpy(inst[count],buffer);
         count++;
     }
+    
+    for(int i = 0; i < 30; i++){
+        if(strlen(inst[i]) == 0){
+            printf("\nLinha vazia, saindo da função...\n");
+            break;
+        } else{
+            //Arrumar um jeito de tratar os dados, talvez precise usar o fscanf...
+            printf("%s",inst[i]);
+        }
+
+    }
+
     printf("\nTestando...\n");
-    printf("%s\n",inst[1]);
+    printf("%s\n",inst[2]);
     fclose(instructions);
 }
 
 void busca(){
-    //MAR recebe a posição de PC para buscar a instrução
+    //MAR recebe a posição de PC para buscar a instrução(Talvez tenha que alterar isso)
     mar = pc;
     
     //Loop para mbr receber mar das demais instruções
