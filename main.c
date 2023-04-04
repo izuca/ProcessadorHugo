@@ -1,7 +1,8 @@
-//gcc main.c instrucoes.c -o programa
+//gcc main.c instrucoes.c  -o programa
 #include <stdio.h>
 #include <string.h>
 #include "instrucoes.h"
+
 
 //Declarando variáveis
 unsigned int mbr;
@@ -10,14 +11,16 @@ unsigned char ir,lr,e,l,g,memoria[154];
 
 //Variáveis do leitor de arquivo
 FILE *instructions;
-char buffer[1024], inst[30][50]; //inst vai armazenar cada linha do arquivo de texto
-// Este contador irá iterar por inst
-int count = 0;
+
+//inst vai armazenar cada linha do arquivo de texto
+char buffer[1024], inst[30][50]; 
 char*token;
 
 
 //Funções
+
 void lerArquivo(){
+    int count = 0;
     instructions = fopen("instrucoes.txt","rt");
 
     if(instructions == NULL){
@@ -45,27 +48,35 @@ void lerArquivo(){
             //         token = strtok(NULL,";");
             //     readcounter++;
             // }
+            // 0 - Pos Memoria
+            // 1 - instrucao/dado
+            // 2 - instrução 1 e 2/dado
         }
 
     }
 
     //Testando a strtok()
     token = strtok(inst[0],";");
+    char teste[30][50];
     int readcounter = 0;
-            while(token != NULL){
-                printf("O token e: %s\n", token);
-                if(readcounter == 2){
-                    printf("Entrei\n");
-                    token = strtok(token,"/");
-                }else
-                    token = strtok(NULL,";");
-                readcounter++;
-            }
-
+    while(token != NULL){
+        strcpy(teste[readcounter],token);
+        printf("O token e: %s\n", token);
+        if(readcounter == 2){
+            token = strtok(token,"/");
+        } else
+            token = strtok(NULL,";");
+        readcounter++;
+    }
+    printf("%i",readcounter);
     printf("\nTestando...\n");
-    printf("%s\n",inst[2]);
+    printf("%s %s %s %s %s\n",teste[0],teste[1],teste[2],teste[3],teste[4]);
+    // faz o readcounter ir até 3(lda 96/ldb 98) daí reinicia o processo a partir das intrucoes...
+    //printf("%s\n",inst[2]);
     fclose(instructions);
 }
+
+
 
 void busca(){
     //MAR recebe a posição de PC para buscar a instrução(Talvez tenha que alterar isso)
@@ -115,7 +126,7 @@ int main (){
     memoria[0x01] = 0xC;
     memoria[0x02] = 0xA0;
     memoria[0x03] = 0xE;
-    lerArquivo();
+    lerArquivo(instructions,buffer,inst);
     busca();
     printf("O valor do mbr após o busca é: %x\n",mbr);
     decodifica();

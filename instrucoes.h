@@ -1,3 +1,4 @@
+#include<stdio.h>
 //Declarando instruções a serem utilizadas
 
 void hlt();
