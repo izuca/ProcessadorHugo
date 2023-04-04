@@ -54,9 +54,10 @@ void lerArquivo(){
     int readcounter = 0;
             while(token != NULL){
                 printf("O token e: %s\n", token);
-                if(readcounter == 2)
-                    token = strtok(NULL,"/");
-                else
+                if(readcounter == 2){
+                    printf("Entrei\n");
+                    token = strtok(token,"/");
+                }else
                     token = strtok(NULL,";");
                 readcounter++;
             }
