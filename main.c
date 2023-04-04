@@ -13,6 +13,7 @@ FILE *instructions;
 char buffer[1024], inst[30][50]; //inst vai armazenar cada linha do arquivo de texto
 // Este contador irá iterar por inst
 int count = 0;
+char*token;
 
 
 //Funções
@@ -30,14 +31,35 @@ void lerArquivo(){
     
     for(int i = 0; i < 30; i++){
         if(strlen(inst[i]) == 0){
-            printf("\nLinha vazia, saindo da função...\n");
+            printf("\nLinha vazia, saindo da funcao...\n");
             break;
         } else{
-            //Arrumar um jeito de tratar os dados, talvez precise usar o fscanf...
             printf("%s",inst[i]);
+            // token = strtok(inst[i],";");
+            // int readcounter = 0;
+            // while(token != NULL){
+            //     printf("O token e: %s\n", token);
+            //     if(readcounter == 2)
+            //         token = strtok(NULL,"/");
+            //     else
+            //         token = strtok(NULL,";");
+            //     readcounter++;
+            // }
         }
 
     }
+
+    //Testando a strtok()
+    token = strtok(inst[0],";");
+    int readcounter = 0;
+            while(token != NULL){
+                printf("O token e: %s\n", token);
+                if(readcounter == 2)
+                    token = strtok(NULL,"/");
+                else
+                    token = strtok(NULL,";");
+                readcounter++;
+            }
 
     printf("\nTestando...\n");
     printf("%s\n",inst[2]);
