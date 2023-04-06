@@ -57,10 +57,11 @@ void lerArquivo(){
     }
 
     //Testando a strtok()
-    token = strtok(inst[1],";");
+    token = strtok(inst[2],";");
     char teste[30][50];
     int readcounter = 0;
-    
+    int instype = 0;
+
     while(token != NULL){
         strcpy(teste[readcounter],token);
         
@@ -78,6 +79,7 @@ void lerArquivo(){
         token = strtok(NULL,";");
         readcounter++;
     }
+    
     char instrucoes [13][40];
     strcpy(instrucoes[0],"hlt");
     strcpy(instrucoes[1], "nop");
@@ -97,30 +99,63 @@ void lerArquivo(){
     //Agora que consigo identificar o caso, basta fazer o mesmo pro teste[2] e seguir o uso sem usar o strtoken( , " ")
     for (int i = 0;i < 13; i++){
         if(strcmp(instrucoes[i],teste[2]) == 0){
-            printf("Deu igual bobao");
+            instype++;
             break;
-        }
-        printf("Diferente\n");
+        }else if (i == 12 && strcmp(instrucoes[i],teste[2]) != 0)
+            printf("A instrução não se encaixa");
     }
-    // char insAndAdd [4][50];
     
-    // token = strtok(teste[2]," ");
-    // strcpy(insAndAdd[0],token);
-    // token = strtok(NULL," ");
-    // strcpy(insAndAdd[1],token);
+    // Na última parte, inserir o \n, se não o strcmp não passará
+    for (int i = 0;i < 13; i++){
+        if(strcmp(strcat(instrucoes[i],"\n"),teste[3]) == 0){
+            instype = instype + 3;
+            break;
+        }else if (i == 12 && strcmp(instrucoes[i],teste[3]) != 0)
+            printf("A instrucao nao se encaixa\n");
+    }
     
-    // token = strtok(teste[3]," ");
-    // strcpy(insAndAdd[2],token);
-    // token = strtok(NULL," ");
-    // strcpy(insAndAdd[3],token);
-    
-    
-    
+    // Analisando o tipo de instrução
+    switch (instype){
+        //AMBAS inst precisem de endereço
+        case 0:
+            char insAndAdd [4][50];
 
-    // for(int i = 0; i < 4;i++){
-    //     strcpy(teste[i+2],insAndAdd[i]);
-    //     printf("%s\n",teste[i+2]);
-    // }
+            token = strtok(teste[2]," ");
+            strcpy(insAndAdd[0],token);
+            token = strtok(NULL," ");
+            strcpy(insAndAdd[1],token);
+            
+            token = strtok(teste[3]," ");
+            strcpy(insAndAdd[2],token);
+            token = strtok(NULL," ");
+            strcpy(insAndAdd[3],token);
+
+            for(int i = 0; i < 4;i++){
+                strcpy(teste[i+2],insAndAdd[i]);
+                printf("%s\n",teste[i+2]);
+            }
+        break;
+
+        //Apenas a segunda instrução irá utilizar end.
+        case 1:
+            
+            token = strtok(teste[3]," ");
+            strcpy(insAndAdd[0], token);
+            token = strtok(NULL," ");
+            strcpy(insAndAdd[1],token);
+
+            for(int i = 0;i < 2; i++){
+                strcpy(teste[i+3],insAndAdd[i]);
+                printf("%s\n",teste[i+2]);
+            }
+        break;
+        
+        // Caso nenhuma precise utilizar end
+        default:
+            printf("Prontin");
+        break;
+    }
+    
     printf("\nTestando...\n");
 
     printf("%s %s %s %s %s %s\n",teste[0],teste[1],teste[2],teste[3], teste[4],teste[5]);
