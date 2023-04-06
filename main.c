@@ -1,6 +1,7 @@
 //gcc main.c instrucoes.c  -o programa
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include "instrucoes.h"
 
 
@@ -56,16 +57,14 @@ void lerArquivo(){
     }
 
     //Testando a strtok()
-    token = strtok(inst[0],";");
+    token = strtok(inst[1],";");
     char teste[30][50];
     int readcounter = 0;
     
     while(token != NULL){
         strcpy(teste[readcounter],token);
-        printf("%s\n",teste[readcounter]);
         
         if(readcounter == 2 && strcmp(teste[1],"i") == 0){
-            printf("Entrei\n");
             token = strtok(token,"/");
             
             while(readcounter < 4){
@@ -79,11 +78,53 @@ void lerArquivo(){
         token = strtok(NULL,";");
         readcounter++;
     }
+    char instrucoes [13][40];
+    strcpy(instrucoes[0],"hlt");
+    strcpy(instrucoes[1], "nop");
+    strcpy(instrucoes[2], "add");
+    strcpy(instrucoes[3], "sub");
+    strcpy(instrucoes[4], "mul");
+    strcpy(instrucoes[5], "div");
+    strcpy(instrucoes[6], "cmp");
+    strcpy(instrucoes[7], "xchg");
+    strcpy(instrucoes[8], "and");
+    strcpy(instrucoes[9], "or");
+    strcpy(instrucoes[10], "xor");
+    strcpy(instrucoes[11], "not");
+    strcpy(instrucoes[12], "ldrb");
+    // Parei aqui
+    // - - - - - - - - - - - - -
+    //Agora que consigo identificar o caso, basta fazer o mesmo pro teste[2] e seguir o uso sem usar o strtoken( , " ")
+    for (int i = 0;i < 13; i++){
+        if(strcmp(instrucoes[i],teste[2]) == 0){
+            printf("Deu igual bobao");
+            break;
+        }
+        printf("Diferente\n");
+    }
+    // char insAndAdd [4][50];
     
-    printf("%d",readcounter);
+    // token = strtok(teste[2]," ");
+    // strcpy(insAndAdd[0],token);
+    // token = strtok(NULL," ");
+    // strcpy(insAndAdd[1],token);
     
+    // token = strtok(teste[3]," ");
+    // strcpy(insAndAdd[2],token);
+    // token = strtok(NULL," ");
+    // strcpy(insAndAdd[3],token);
+    
+    
+    
+
+    // for(int i = 0; i < 4;i++){
+    //     strcpy(teste[i+2],insAndAdd[i]);
+    //     printf("%s\n",teste[i+2]);
+    // }
     printf("\nTestando...\n");
-    printf("%s %s %s %s\n",teste[0],teste[1],teste[2],teste[3]);
+
+    printf("%s %s %s %s %s %s\n",teste[0],teste[1],teste[2],teste[3], teste[4],teste[5]);
+    // printf("%s e %s %s e %s\n",insAndAdd[0],insAndAdd[1],insAndAdd[2],insAndAdd[3]);
     // faz o readcounter ir até 3(lda 96/ldb 98) daí reinicia o processo a partir das intrucoes...
     //printf("%s\n",inst[2]);
     fclose(instructions);
