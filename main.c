@@ -26,131 +26,131 @@ void dictionaryIterator(char dictionary[][40], char comparado[][50], int compPos
                     switch (i)
                     {
                     case 0: //hlt
-                        strcpy(comparado[compPos],"0x00");
+                        strcpy(comparado[compPos],"00");
                         break;
 
                     case 1: //nop
-                        strcpy(comparado[compPos],"0x01");
+                        strcpy(comparado[compPos],"01");
                         break;
 
                     case 2: //add
-                        strcpy(comparado[compPos],"0x02");
+                        strcpy(comparado[compPos],"02");
                         break;
                     
                     case 3: //sub
-                        strcpy(comparado[compPos],"0x03");
+                        strcpy(comparado[compPos],"03");
                         break;
                     
                     case 4: //mul
-                        strcpy(comparado[compPos],"0x04");
+                        strcpy(comparado[compPos],"04");
                         break;
 
                     case 5: //div
-                        strcpy(comparado[compPos],"0x05");
+                        strcpy(comparado[compPos],"05");
                         break;
 
                     case 6: //cmp
-                        strcpy(comparado[compPos],"0x06");
+                        strcpy(comparado[compPos],"06");
                         break;
 
                     case 7: //xchg
-                        strcpy(comparado[compPos],"0x07");
+                        strcpy(comparado[compPos],"07");
                         break;
 
                     case 8: //and
-                        strcpy(comparado[compPos],"0x08");
+                        strcpy(comparado[compPos],"08");
                         break;
 
                     case 9: //or
-                        strcpy(comparado[compPos],"0x09");
+                        strcpy(comparado[compPos],"09");
                         break;
 
                     case 10: //xor
-                        strcpy(comparado[compPos],"0x0A");
+                        strcpy(comparado[compPos],"0A");
                         break;
 
                     case 11: //not
-                        strcpy(comparado[compPos],"0x0B");
+                        strcpy(comparado[compPos],"0B");
                         break;
 
                     case 12: //ldrb
-                        strcpy(comparado[compPos],"0x17");
+                        strcpy(comparado[compPos],"17");
                         break;
 
                     case 13: //je
-                        strcpy(comparado[compPos],"0x0C");
+                        strcpy(comparado[compPos],"0C");
                         break;
 
                     case 14: //jne
-                        strcpy(comparado[compPos],"0x0D");
+                        strcpy(comparado[compPos],"0D");
                         break;
 
                     case 15: //jl
-                        strcpy(comparado[compPos],"0x0E");
+                        strcpy(comparado[compPos],"0E");
                         break;
 
                     case 16: //jle
-                        strcpy(comparado[compPos],"0x0F");
+                        strcpy(comparado[compPos],"0F");
                         break;
 
                     case 17: //jg
-                        strcpy(comparado[compPos],"0x10");
+                        strcpy(comparado[compPos],"10");
                         break;
 
                     case 18: //jge
-                        strcpy(comparado[compPos],"0x11");
+                        strcpy(comparado[compPos],"11");
                         break;
 
                     case 19: //jmp
-                        strcpy(comparado[compPos],"0x12");
+                        strcpy(comparado[compPos],"12");
                         break;
 
                     case 20: //lda
-                        strcpy(comparado[compPos],"0x13");
+                        strcpy(comparado[compPos],"13");
                         break;
 
                     case 21: //ldb
-                        strcpy(comparado[compPos],"0x14");
+                        strcpy(comparado[compPos],"14");
                         break;
 
                     case 22: //sta
-                        strcpy(comparado[compPos],"0x15");
+                        strcpy(comparado[compPos],"15");
                         break;
 
                     case 23: //stb
-                        strcpy(comparado[compPos],"0x16");
+                        strcpy(comparado[compPos],"16");
                         break;
 
                     case 24: //movial
-                        strcpy(comparado[compPos],"0x18");
+                        strcpy(comparado[compPos],"18");
                         break;
 
                     case 25: //moviah
-                        strcpy(comparado[compPos],"0x19");
+                        strcpy(comparado[compPos],"19");
                         break; 
 
                     case 26: //addia
-                        strcpy(comparado[compPos],"0x1A");
+                        strcpy(comparado[compPos],"1A");
                         break;
                     
                     case 27: //subia
-                        strcpy(comparado[compPos],"0x1B");
+                        strcpy(comparado[compPos],"1B");
                         break;
                     
                     case 28: //mulia
-                        strcpy(comparado[compPos],"0x1C");
+                        strcpy(comparado[compPos],"1C");
                         break;
                     
                     case 29: //divia
-                        strcpy(comparado[compPos],"0x1D");
+                        strcpy(comparado[compPos],"1D");
                         break;
                     
                     case 30: //lsh
-                        strcpy(comparado[compPos],"0x1E");
+                        strcpy(comparado[compPos],"1E");
                         break;
                     
                     case 31: //rsh
-                        strcpy(comparado[compPos],"0x1F");
+                        strcpy(comparado[compPos],"1F");
                         break;
 
                     default:
@@ -164,6 +164,8 @@ void dictionaryIterator(char dictionary[][40], char comparado[][50], int compPos
 
 void lerArquivo(){
     int count = 0;
+    char concat [1][30];
+    strcpy(concat[0],"");
     instructions = fopen("instrucoes.txt","rt");
 
     if(instructions == NULL){
@@ -181,26 +183,15 @@ void lerArquivo(){
             break;
         } else{
             printf("%s",inst[i]);
-            // token = strtok(inst[i],";");
-            // int readcounter = 0;
-            // while(token != NULL){
-            //     printf("O token e: %s\n", token);
-            //     if(readcounter == 2)
-            //         token = strtok(NULL,"/");
-            //     else
-            //         token = strtok(NULL,";");
-            //     readcounter++;
-            // }
-            // 0 - Pos Memoria
-            // 1 - instrucao/dado
-            // 2 - instrução 1 e 2/dado
+            
+
         }
 
     }
 
     //Testando a strtok()
     token = strtok(inst[1],";");
-    char teste[30][50];
+    char teste[30][50], testeTemp[1][50];
     int readcounter = 0;
     int instype = 0;
 
@@ -257,92 +248,163 @@ void lerArquivo(){
     strcpy(instrucoes[29], "divia");
     strcpy(instrucoes[30], "lsh");
     strcpy(instrucoes[31], "rsh");
+    
+    if(strcmp(teste[1],"i") == 0){
+        for (int i = 0;i < 13; i++){
+            //Se a instrução da esquerda não precisar de End. Mem ou IMM...
+            if(strcmp(instrucoes[i],teste[2]) == 0){
+                instype++;
+                break;
+            }else if (i == 12 && strcmp(instrucoes[i],teste[2]) != 0)
+                printf("A instrucao nao se encaixa\n");
+        }
+    
+        char breakliner[30]; // Criei essa função temp para evitar quebra de linha no strcat
+        // Na última parte, inserir o \n, se não o strcmp não passará
+        for (int i = 0;i < 13; i++){
+            //Se a instrução da direita não precisar de End. Mem ou IMM...
+            strcpy(breakliner,instrucoes[i]);
+            if(strcmp(strcat(breakliner,"\n"),teste[3]) == 0){
+                instype = instype + 3;
+                break;
+            }else if (i == 12 && strcmp(instrucoes[i],teste[3]) != 0)
+                printf("A instrucao nao se encaixa\n");
+        }
+    
+        // Analisando o tipo de instrução
+        switch (instype){
+            //AMBAS inst precisem de endereço
+            case 0:
+                char insAndAdd [4][50];
+                printf("Caso 0\n");
+                token = strtok(teste[2]," ");
+                strcpy(insAndAdd[0],token);
+                token = strtok(NULL," ");
+                strcpy(insAndAdd[1],token);
+                
+                token = strtok(teste[3]," ");
+                strcpy(insAndAdd[2],token);
+                token = strtok(NULL," ");
+                strcpy(insAndAdd[3],token);
+                
+                for(int i = 0; i < 4;i++){
+                    strcpy(teste[i+2],insAndAdd[i]);
+                    printf("%s\n",teste[i+2]);
+                }
 
-    for (int i = 0;i < 13; i++){
-        //Se a instrução da esquerda não precisar de End. Mem ou IMM...
-        if(strcmp(instrucoes[i],teste[2]) == 0){
-            instype++;
+                // Colocar a função iteradora do dicionario aqui
+                dictionaryIterator(instrucoes, teste, 2);
+                dictionaryIterator(instrucoes, teste, 4);
+
+                for(int i = 0; i < 4; i++){
+                    strcat(concat[0],teste[i+2]);
+                }
+                
             break;
-        }else if (i == 12 && strcmp(instrucoes[i],teste[2]) != 0)
-            printf("A instrucao nao se encaixa\n");
-    }
-    
-    // Na última parte, inserir o \n, se não o strcmp não passará
-    for (int i = 0;i < 13; i++){
-        //Se a instrução da direita não precisar de End. Mem ou IMM...
-        if(strcmp(strcat(instrucoes[i],"\n"),teste[3]) == 0){
-            instype = instype + 3;
+
+            //Apenas a segunda instrução irá utilizar end.
+            case 1:
+                printf("Caso 1\n");
+                token = strtok(teste[1]," ");
+                strcpy(insAndAdd[0], token);
+                token = strtok(NULL," ");
+                strcpy(insAndAdd[1],token);
+
+                //Atribuindo o insAndAdd pro teste
+                for(int i = 0;i < 2; i++){
+                    strcpy(teste[i+3],insAndAdd[i]);
+                    printf("%s\n",teste[i+3]);
+                }
+                //Tirando o \n
+                for(int i = 0; i < 50; i++){
+                    if(teste[3][i] != '\n'){
+                        testeTemp[0][i] = teste[3][i];
+                        printf("o negocio e %c\n",teste[3][i]);
+                    } else
+                        break;
+                }
+
+                dictionaryIterator(instrucoes,testeTemp,0);
+                strcpy(teste[3],testeTemp[0]);
+                for(int i = 0; i < 3; i++){
+                    strcat(concat[0],teste[i+2]);
+                }
             break;
-        }else if (i == 12 && strcmp(instrucoes[i],teste[3]) != 0)
-            printf("A instrucao nao se encaixa\n");
-    }
-    
-    // Analisando o tipo de instrução
-    switch (instype){
-        //AMBAS inst precisem de endereço
-        case 0:
-            char insAndAdd [4][50];
-            printf("Caso 0\n");
-            token = strtok(teste[2]," ");
-            strcpy(insAndAdd[0],token);
-            token = strtok(NULL," ");
-            strcpy(insAndAdd[1],token);
+            //So vai ter endereço no primeiro
+            case 3:
+                printf("Caso 3\n");
+                token = strtok(teste[2]," ");
+                strcpy(insAndAdd[0], token);
+                token = strtok(NULL," ");
+                strcpy(insAndAdd[1],token);
+                
+                //passando o teste[3] para teste[4]
+                strcpy(teste[4],teste[3]);
+
+                //Atribuindo o insAndAdd pro teste
+                for(int i = 0;i < 2; i++){
+                    strcpy(teste[i+2],insAndAdd[i]);
+                    printf("%s\n",teste[i+2]);
+                }
+                printf("aaaaatchim %s\n",teste[4]);
+                //Tirando o \n
+                for(int i = 0; i < 50; i++){
+                    if(teste[4][i] != '\n'){
+                        testeTemp[0][i] = teste[4][i];
+                        printf("o negocio e %c\n",teste[4][i]);
+                    } else
+                        break;
+                }
+                dictionaryIterator(instrucoes,teste,2);
+                dictionaryIterator(instrucoes,testeTemp,0);
+                strcpy(teste[4],testeTemp[0]);
+                for(int i = 0; i < 3; i++){
+                    strcat(concat[0],teste[i+2]);
+                }
+                break;
             
-            token = strtok(teste[3]," ");
-            strcpy(insAndAdd[2],token);
-            token = strtok(NULL," ");
-            strcpy(insAndAdd[3],token);
-
-            for(int i = 0; i < 4;i++){
-                strcpy(teste[i+2],insAndAdd[i]);
-                printf("%s\n",teste[i+2]);
-            }
-
-            // Colocar a função iteradora do dicionario aqui
-            dictionaryIterator(instrucoes, teste, 2);
-            dictionaryIterator(instrucoes, teste, 4);
             
-        break;
-
-        //Apenas a segunda instrução irá utilizar end.
-        case 1:
-            printf("Caso 1\n");
-            token = strtok(teste[3]," ");
-            strcpy(insAndAdd[0], token);
-            token = strtok(NULL," ");
-            strcpy(insAndAdd[1],token);
-
-            for(int i = 0;i < 2; i++){
-                strcpy(teste[i+3],insAndAdd[i]);
-                printf("%s\n",teste[i+2]);
-            }
-            dictionaryIterator(instrucoes,teste,3);            
-        break;
-        //So vai ter endereço no primeiro
-        case 3:
-            printf("Caso 3\n");
-            token = strtok(teste[2]," ");
-            strcpy(insAndAdd[0], token);
-            token = strtok(NULL," ");
-            strcpy(insAndAdd[1],token);
-
-            dictionaryIterator(instrucoes,teste,2);            
+            // Caso nenhuma precise utilizar end
+            case 4:
+                printf("Caso 4\n");
+                printf("%s %s",instrucoes[7], teste[3]);
+                printf("\n%d\n", strcmp(instrucoes[3],teste[2]));
+                //Tirando o \n
+                for(int i = 0; i < 50; i++){
+                    if(teste[3][i] != '\n'){
+                        testeTemp[0][i] = teste[3][i];
+                        printf("o negocio e %c\n",teste[3][i]);
+                    } else
+                        break;
+                }
+                
+                dictionaryIterator(instrucoes,teste,2);
+                dictionaryIterator(instrucoes,testeTemp,0);
+                strcpy(teste[3],testeTemp[0]);
+                printf("nao aguento mais %s\n",teste[3]);
+                for(int i = 0; i < 2; i++){
+                    strcat(concat[0],teste[i+2]);
+                }
             break;
-        
-        
-        // Caso nenhuma precise utilizar end
-        case 4:
-            printf("Caso 4\n");
-            printf("%s %s",teste[2], instrucoes[2]);
-            printf("\n%d\n", strcmp(instrucoes[3],teste[2]));
-            dictionaryIterator(instrucoes,teste,2);
-            dictionaryIterator(instrucoes,teste,3);
-        break;
+        }
+
+
     }
-    for(int i = 0; i < 32; i++){
-        printf("%s\n",instrucoes[i]);
-    }
+    //Alocando na memória...
+    // for(int i = 0; i < 4; i++){
+    //     printf("%X",teste[0])
+    // }
+    // printf("em hexa e %s\n",teste[0]);
+    // char locTemp[1][4];
+    // char loc = "0x";
+    // strcpy(locTemp[0], "0x");
+    // strcat(locTemp[0],teste[0]);
+    printf("concatenando... %s\n",concat[0]);
+
+
     
+    
+    //Testando...
     printf("\nTestando...\n");
     if(instype == 0)
         printf("%s %s %s %s %s %s\n",teste[0],teste[1],teste[2],teste[3], teste[4], teste[5]);
@@ -353,9 +415,8 @@ void lerArquivo(){
     else
         printf("%s %s %s %s\n",teste[0],teste[1],teste[2],teste[3]);
         
-    // printf("%s e %s %s e %s\n",insAndAdd[0],insAndAdd[1],insAndAdd[2],insAndAdd[3]);
-    // faz o readcounter ir até 3(lda 96/ldb 98) daí reinicia o processo a partir das intrucoes...
-    //printf("%s\n",inst[2]);
+    
+    //printf("em hexa e %X\n",memoria[locTemp[0]]);
     fclose(instructions);
 }
 
@@ -394,6 +455,144 @@ void decodifica(){
 }
 
 void executa(){
+    //checando a instrução            
+    switch (ir)
+    {
+    case 0x00: //hlt
+        hlt();
+        break;
+
+    case 0x01: //nop
+        nop(pc,lr);
+        break;
+
+    case 0x02: //add
+        add(a,b);
+        break;
+    
+    case 0x03: //sub
+        sub(a,b);
+        break;
+    
+    case 0x04: //mul
+        mul(a,b);
+        break;
+
+    case 0x05: //div
+        div(a,b);
+        break;
+
+    case 0x06: //cmp
+        cmp(a,b,e,l,g);
+        break;
+
+    case 0x07: //xchg
+        xchg(a,b,t);
+        break;
+
+    case 0x08: //and
+        land(a,b);
+        break;
+
+    case 0x09: //or
+        lor(a,b);
+        break;
+
+    case 0x0a: //xor
+        lxor(a,b);
+        break;
+
+    case 0x0b: //not
+        lnor(a);
+        break;
+
+    case 0x17: //ldrb
+        ldrb(mar,a,b);
+        break;
+
+    case 0x0c: //je
+        je(mar,pc,e);
+        break;
+
+    case 0x0d: //jne
+        jne(mar,pc,e);
+        break;
+
+    case 0x0e: //jl
+        jl(mar,l,pc);
+        break;
+
+    case 0x0f: //jle
+        jle(mar,l,e,pc);
+        break;
+
+    case 0x10: //jg
+        strcpy(comparado[compPos],"10");
+        break;
+
+    case 0x11: //jge
+        strcpy(comparado[compPos],"11");
+        break;
+
+    case 0x12: //jmp
+        strcpy(comparado[compPos],"12");
+        break;
+
+    case 0x13: //lda
+        strcpy(comparado[compPos],"13");
+        break;
+
+    case 0x14: //ldb
+        strcpy(comparado[compPos],"14");
+        break;
+
+    case 0x15: //sta
+        strcpy(comparado[compPos],"15");
+        break;
+
+    case 0x16: //stb
+        strcpy(comparado[compPos],"16");
+        break;
+
+    case 0x18: //movial
+        strcpy(comparado[compPos],"18");
+        break;
+
+    case 0x19: //moviah
+        strcpy(comparado[compPos],"19");
+        break; 
+
+    case 0x1a: //addia
+        strcpy(comparado[compPos],"1A");
+        break;
+    
+    case 0x1b: //subia
+        strcpy(comparado[compPos],"1B");
+        break;
+    
+    case 0x1c: //mulia
+        strcpy(comparado[compPos],"1C");
+        break;
+    
+    case 0x1d: //divia
+        strcpy(comparado[compPos],"1D");
+        break;
+    
+    case 0x1e: //lsh
+        strcpy(comparado[compPos],"1E");
+        break;
+    
+    case 0x1f: //rsh
+        strcpy(comparado[compPos],"1F");
+        break;
+
+    default:
+        printf("Erro na checagem do opcode");
+        break;
+    }
+    
+                
+            
 
 }
 
@@ -403,14 +602,15 @@ int main (){
     mbr = 0;
     
     //testando ...
-    //1001 1000 0000 1100 1010 0000 0000 1110  | lda C ldb E
-    memoria[0x00] = 0x98;
-    memoria[0x01] = 0xC;
-    memoria[0x02] = 0xA0;
-    memoria[0x03] = 0xE;
+    //1001 1000 0000 1100 1010 0000 0000 1110  | lda 96 ldb 98
+    memoria[0x00] = 0x13;
+    memoria[0x01] = 0x96;
+    memoria[0x02] = 0x14;
+    memoria[0x03] = 0x98;
     lerArquivo();
     busca();
-    printf("O valor do mbr após o busca é: %x\n",mbr);
+    printf("O valor do mbr ap0s o busca 0: %x\n",mbr);
+    
     decodifica();
     
 }
